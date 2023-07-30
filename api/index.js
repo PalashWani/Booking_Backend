@@ -47,11 +47,6 @@ mongoose.connection.on("disconnected", ()=> {
 
 
 
-app.get("/", (req,res) => {
-    res.send("Heeloo");
-})
-
-
 app.listen(8800, ()=>{
     connect();
     console.log("Server listening on port 8800!!");
