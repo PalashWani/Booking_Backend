@@ -44,6 +44,9 @@ const HotelSchema = new mongoose.Schema({
     photos: {
         type: [String],
     },
+    rooms: {
+        type: [String],
+    },
     cheapestPrice: {
         type: Number,
         required: true
