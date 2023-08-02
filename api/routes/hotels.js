@@ -1,7 +1,7 @@
 import express from "express";
 import Hotel from "../models/Hotel.js";
 import { verifyAdmin, verifyToken, verifyUser } from "../utils/verifyToken.js";
-import { createHotel, deleteHotel, getHotel, getHotels, updateHotel } from "../controllers/hotel.js";
+import { countByCity, countByType, createHotel, deleteHotel, getHotel, getHotelRooms, getHotels, updateHotel } from "../controllers/hotel.js";
 
 const router = express.Router();
 
@@ -15,9 +15,14 @@ router.put("/:id",verifyAdmin, updateHotel);
 router.delete("/:id",verifyAdmin, deleteHotel);
 
 //GET BY ID
-router.get("/:id", getHotel);
+//We are writing /find in the route beacuse in the count by city function
+//we are writing countByCity in the route and it is being trated as an id by the server
+router.get("/find/:id", getHotel);
 
 //GET ALL
 router.get("/", getHotels);
+router.get("/countByCity", countByCity);
+router.get("/countByType", countByType);
+router.get("/room/:id", getHotelRooms);
 
 export default router;
